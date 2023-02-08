@@ -1,0 +1,18 @@
+/**
+* index.css
+* @author Alejandro De Jesús
+*/
+
+html {
+    font-size: 100%;
+}
+
+body {
+    background-color: lightgray;
+}
+
+.index {
+    display: flex;
+    width: fit-content;
+    background-color: red;
+}
