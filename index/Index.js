@@ -4,7 +4,7 @@
 */
 
 import { appendChildren, setClass } from "../helpers.js";
-import { div, p } from "../htmlElements.js";
+import { div, p } from "../helpers/htmlElements.js";
 
 export class Index {
     constructor() {
