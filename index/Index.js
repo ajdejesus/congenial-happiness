@@ -3,7 +3,7 @@
 * @author Alejandro De Jesús
 */
 
-import { appendChildren, setClass } from "../helpers.js";
+import { appendChildren, setClass } from "../helpers/helpers.js";
 import { div, p } from "../helpers/htmlElements.js";
 
 export class Index {
@@ -13,8 +13,10 @@ export class Index {
     }
     setView() {
         appendChildren(this.root, [
+            setClass(p('Hello world'), 'index'), 
             setClass(p('Hello world'), 'index')
         ]);
+        
     }
 }
 
