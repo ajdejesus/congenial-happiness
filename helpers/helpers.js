@@ -9,7 +9,7 @@
  * @returns parent node with appended children
  */
 export function appendChildren(parent, children) {
-    children.map(child => parent.appendChild(child));
+    children.forEach(child => parent.appendChild(child));
     return parent;
 }
 /**
