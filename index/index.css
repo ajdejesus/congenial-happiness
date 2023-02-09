@@ -16,3 +16,8 @@ body {
     width: fit-content;
     background-color: red;
 }
+
+#canvas {
+    border: 0.1rem solid black;
+    background-color: black;
+}
