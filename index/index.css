@@ -3,13 +3,12 @@
 * @author Alejandro De Jesús
 */
 
-html {
-    font-size: 100%;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-body {
-    background-color: lightgray;
-}
 
 .index {
     display: flex;
