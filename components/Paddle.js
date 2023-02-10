@@ -19,15 +19,29 @@ export class Paddle {
         this.c.fillRect(this.x, this.y, this.width, this.height);
     }
     setControllers(upKey, downKey) {
-        this.upKey = upKey;
-        this.downKey = downKey;
+        this.controls = {
+            up: {
+                key: upKey,
+                pressed: false
+            },
+            down: {
+                key: downKey,
+                pressed: false
+            }
+        }
     }
     getControllers() {
-        return [this.upKey, this.downKey];
+        return [this.controls.up.key, this.controls.down.key];
     }
-    move(newY) {
-        this.c.clearRect(this.x, this.y, this.width, this.height);
-        this.y = newY;
-        this.setPosition();
+    move(key) {
+        if (this.getControllers().includes(key)) {
+            if (key === this.controls.up.key) this.controls.up.pressed = true;
+            // console.log('started move', this.x, this.y);
+            // window.requestAnimationFrame(this.move);
+            this.c.clearRect(this.x, this.y, this.width, this.height);
+            if (key === this.controls.up.key) this.y -= 10;
+            else if (key === this.controls.down.key) this.y += 10;
+            this.setPosition();
+        }
     }
 }

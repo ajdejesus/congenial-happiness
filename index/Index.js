@@ -4,12 +4,9 @@
 */
 
 import { Paddle } from "../components/Paddle.js";
-import { appendChildren, setClass } from "../helpers/helpers.js";
-import { div, p } from "../helpers/htmlElements.js";
 
 export class Index {
     constructor() {
-        this.root = document.getElementById('root');
         this.canvas = document.querySelector('canvas');
         this.player1 = new Paddle(this.canvas, 100, 100);
         this.player2 = new Paddle(this.canvas, 1180, 100);
@@ -18,6 +15,7 @@ export class Index {
         this.setView();
     }
     setView() {
+        console.log('view set');
         this.canvas.width = 1280;
         this.canvas.height = 720;
         this.c.strokeStyle = 'white';
@@ -33,13 +31,19 @@ export class Index {
         this.player1.setControllers(p1up, p1down);
         this.player2.setControllers(p2up, p2down);
         document.addEventListener('keydown', event => {
-            if (this.player1.getControllers().includes(event.key)) {
-                this.player1.move(event.key == this.player1.upKey ? this.player1.y - 10 : this.player1.y + 10);
-            } else if (this.player2.getControllers().includes(event.key)) {
-                this.player2.move(event.key == this.player2.upKey ? this.player2.y - 10 : this.player2.y + 10)
-            }
+            this.player1.move(event.key);
+            this.player2.move(event.key);
         });
+        document.addEventListener('keyup', event => {
+            // this.player1.stopMove(event.key);
+            // this.player2.move(event.key);
+        })
     }
 }
 
-window.onload = () => new Index();
+window.onload = () => {
+    console.log('loaded');
+    new Index();
+    // const pong = new Index();
+    // pong.startAnimation();
+};
